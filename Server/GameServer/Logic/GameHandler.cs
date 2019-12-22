@@ -305,7 +305,9 @@ namespace GameServer.Logic
                 room.Broadcast(OpCode.GAME, GameCode.GAME_DO_ATTACK_BROA, dto,client);
             });
         }
-
+        /// <summary>
+        /// 同步技能
+        /// </summary>
         private void ExcuteSkill(ClientPeer client, SkillDto dto)
         {            
             if (dto == null)
@@ -333,7 +335,9 @@ namespace GameServer.Logic
                 room.Broadcast(OpCode.GAME, GameCode.GAME_STOP_SKILL_BROA, dto, client);
             });
         }
-
+        /// <summary>
+        /// 同步子弹类型
+        /// </summary>
         private void ExcuteArmsType(ClientPeer client,ArmsDto dto)
         {
             if (dto == null)
