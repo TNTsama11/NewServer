@@ -1,0 +1,22 @@
+F:\unity\新建文件夹 (5)\ServerOne\ServerOne\bin\Debug\ServerOne.exe.config
+F:\Git\ServerOne\ServerOne\bin\Debug\ServerOne.exe.config
+F:\Git\ServerOne\ServerOne\bin\Debug\ServerOne.exe
+F:\Git\ServerOne\ServerOne\bin\Debug\ServerOne.pdb
+F:\Git\ServerOne\ServerOne\obj\Debug\ServerOne.exe
+F:\Git\ServerOne\ServerOne\obj\Debug\ServerOne.pdb
+F:\Git\ServerOne\ServerOne\obj\Debug\ServerOne.csprojAssemblyReference.cache
+F:\Git\ServerOne\ServerOne\obj\Debug\ServerOne.csproj.CoreCompileInputs.cache
+F:\Unity3D\Server\ServerOne\bin\Debug\ServerOne.exe.config
+F:\Unity3D\Server\ServerOne\bin\Debug\ServerOne.exe
+F:\Unity3D\Server\ServerOne\bin\Debug\ServerOne.pdb
+F:\Unity3D\Server\ServerOne\obj\Debug\ServerOne.csprojAssemblyReference.cache
+F:\Unity3D\Server\ServerOne\obj\Debug\ServerOne.csproj.CoreCompileInputs.cache
+F:\Unity3D\Server\ServerOne\obj\Debug\ServerOne.exe
+F:\Unity3D\Server\ServerOne\obj\Debug\ServerOne.pdb
+F:\unity\20191209Game\Server\ServerOne\bin\Debug\ServerOne.exe.config
+F:\unity\20191209Game\Server\ServerOne\bin\Debug\ServerOne.exe
+F:\unity\20191209Game\Server\ServerOne\bin\Debug\ServerOne.pdb
+F:\unity\20191209Game\Server\ServerOne\obj\Debug\ServerOne.csprojAssemblyReference.cache
+F:\unity\20191209Game\Server\ServerOne\obj\Debug\ServerOne.csproj.CoreCompileInputs.cache
+F:\unity\20191209Game\Server\ServerOne\obj\Debug\ServerOne.exe
+F:\unity\20191209Game\Server\ServerOne\obj\Debug\ServerOne.pdb

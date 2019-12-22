@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerOne", "ServerOne\ServerOne.csproj", "{5D51954E-432C-4CC2-B78F-4924F5FF7CB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer", "GameServer\GameServer.csproj", "{0F52BAD0-1221-49A8-8564-EB662A8102BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicationProtocol", "CommunicationProtocol\CommunicationProtocol.csproj", "{F61CCD14-7ABE-4A18-94DA-AE192D71022D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D51954E-432C-4CC2-B78F-4924F5FF7CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D51954E-432C-4CC2-B78F-4924F5FF7CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D51954E-432C-4CC2-B78F-4924F5FF7CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D51954E-432C-4CC2-B78F-4924F5FF7CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F52BAD0-1221-49A8-8564-EB662A8102BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F52BAD0-1221-49A8-8564-EB662A8102BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F52BAD0-1221-49A8-8564-EB662A8102BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F52BAD0-1221-49A8-8564-EB662A8102BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F61CCD14-7ABE-4A18-94DA-AE192D71022D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61CCD14-7ABE-4A18-94DA-AE192D71022D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61CCD14-7ABE-4A18-94DA-AE192D71022D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61CCD14-7ABE-4A18-94DA-AE192D71022D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
