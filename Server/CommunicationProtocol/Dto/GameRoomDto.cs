@@ -16,6 +16,7 @@ namespace CommunicationProtocol.Dto
         public Dictionary<string, HpDto> UserHpDict;
         public Dictionary<string, HgDto> UserHgDict;
         public Dictionary<string, KillDto> UserKillDict;
+        public Dictionary<string, int> UserArmsDict;
 
         public GameRoomDto()
         {
@@ -24,6 +25,7 @@ namespace CommunicationProtocol.Dto
             UserHpDict = new Dictionary<string, HpDto>();
             UserHgDict = new Dictionary<string, HgDto>();
             UserKillDict = new Dictionary<string, KillDto>();
+            //UserArmsDict = new Dictionary<string, int>();
         }
     }
 }

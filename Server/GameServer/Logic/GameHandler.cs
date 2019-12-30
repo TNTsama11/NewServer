@@ -100,6 +100,9 @@ namespace GameServer.Logic
                 case GameCode.GAME_DO_ATTACK_CERQ:
                     ExcuteAttack(client, value as ShootDto);
                     break;
+                case GameCode.GAME_LOADCOMPLETE_CERQ:
+                    OnPlayerLoadComplete(client);
+                    break;
                 default:
                     break;
             }
@@ -168,21 +171,54 @@ namespace GameServer.Logic
                     int kill = gameRoom.GetKillByAcc(item);
                     KillDto killDto = new KillDto(item, kill);
                     gameRoomDto.UserKillDict.Add(item, killDto);
+                    //int armsType = gameRoom.GetArmsByAcc(item);
+                    //gameRoomDto.UserArmsDict.Add(item, armsType);
                 }
                 //向新加入的玩家发送当前房间信息
-                client.SendMessage(OpCode.GAME, GameCode.GAME_ENTER_SREP, gameRoomDto);
-                //给新玩家同步房间内的道具
-                if (gameRoom.IdPropsDict.Count != 0)
-                {
-                    CreatPropsDto creatPropsDto = new CreatPropsDto();
-                    foreach (var item in gameRoom.IdPropsDict)
-                    {                        
-                        creatPropsDto.idPropsTypeDict.Add(item.Key, item.Value);
-                    }
-                    client.SendMessage(OpCode.GAME, GameCode.GAME_CREAT_PROPS_SREP, creatPropsDto);
-                }
+                client.SendMessage(OpCode.GAME, GameCode.GAME_ENTER_SREP, gameRoomDto);                
             });
         }
+        /// <summary>
+        /// 玩家加载完场景后的请求
+        /// </summary>
+        private void OnPlayerLoadComplete(ClientPeer client)
+        {
+            SingleExcute.Instance.Exeute(() =>
+            {
+                if (!userCache.IsOnline(client))
+                {
+                    return;
+                }
+                string acc = userCache.GetAccByClient(client);
+                GameRoom room = gameCache.GetGameRoom(acc);
+                SendArms(client,room);
+                SendProps(client, room);
+            });
+        }
+
+        private void SendProps(ClientPeer client,GameRoom room)
+        {
+            //给新玩家同步房间内的道具
+            if (room.IdPropsDict.Count != 0)
+            {
+                CreatPropsDto creatPropsDto = new CreatPropsDto();
+                foreach (var item in room.IdPropsDict)
+                {
+                    creatPropsDto.idPropsTypeDict.Add(item.Key, item.Value);
+                }
+                client.SendMessage(OpCode.GAME, GameCode.GAME_CREAT_PROPS_SREP, creatPropsDto);
+            }
+        }
+
+        private void SendArms(ClientPeer client,GameRoom room)
+        {
+            foreach (var item in room.UserArmsDict)
+            {
+                ArmsDto armsDto = new ArmsDto(item.Key, item.Value);
+                client.SendMessage(OpCode.GAME, GameCode.GAME_SYNC_ATTACKTYPE_SREP, armsDto);
+            }
+        }
+
         /// <summary>
         /// 退出
         /// </summary>
@@ -348,6 +384,7 @@ namespace GameServer.Logic
             {
                 string acc = userCache.GetAccByClient(client);
                 GameRoom room = gameCache.GetGameRoom(acc);
+                room.SetArms(acc, dto.Type);
                 room.Broadcast(OpCode.GAME, GameCode.GAME_SYNC_ATTACKTYPE_BROA, dto, client);
             });
         }
@@ -360,7 +397,8 @@ namespace GameServer.Logic
             SingleExcute.Instance.Exeute(() =>
             {
                 string acc = userCache.GetAccByClient(client);
-                GameRoom room = gameCache.GetGameRoom(acc);                
+                GameRoom room = gameCache.GetGameRoom(acc);
+                room.SetArms(acc, 0);
                 room.Broadcast(OpCode.GAME, GameCode.GAME_DEATH_BROA,deathDto,client);
                 Tool.PrintMessage("玩家" + client.clientSocket.RemoteEndPoint.ToString() + "死亡");
                 //给杀手加个人头

@@ -173,6 +173,8 @@ namespace GameServer.Logic
                         int kill = gameRoom.GetKillByAcc(item);
                         KillDto killDto = new KillDto(item, kill);
                         gameRoomDto.UserKillDict.Add(item, killDto);
+                       // int armsType = gameRoom.GetArmsByAcc(item);
+                        //gameRoomDto.UserArmsDict.Add(item, armsType);
                     }
                     //广播开始游戏
                    // room.BroadcastUserInfo(OpCode.MATCH, MatchCode.MATCH_START_BROA, null);

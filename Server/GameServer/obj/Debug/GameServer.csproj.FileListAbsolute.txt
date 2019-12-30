@@ -38,3 +38,16 @@ F:\unity\20191209Game\Server\GameServer\obj\Debug\GameServer.csproj.CoreCompileI
 F:\unity\20191209Game\Server\GameServer\obj\Debug\GameServer.csproj.CopyComplete
 F:\unity\20191209Game\Server\GameServer\obj\Debug\GameServer.exe
 F:\unity\20191209Game\Server\GameServer\obj\Debug\GameServer.pdb
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\GameServer.exe.config
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\GameServer.exe
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\GameServer.pdb
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\CommunicationProtocol.dll
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\ServerOne.exe
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\CommunicationProtocol.pdb
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\ServerOne.pdb
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\ServerOne.exe.config
+F:\unity\20191209Game\ServerGit\Server\GameServer\obj\Debug\GameServer.csprojAssemblyReference.cache
+F:\unity\20191209Game\ServerGit\Server\GameServer\obj\Debug\GameServer.csproj.CoreCompileInputs.cache
+F:\unity\20191209Game\ServerGit\Server\GameServer\obj\Debug\GameServer.csproj.CopyComplete
+F:\unity\20191209Game\ServerGit\Server\GameServer\obj\Debug\GameServer.exe
+F:\unity\20191209Game\ServerGit\Server\GameServer\obj\Debug\GameServer.pdb

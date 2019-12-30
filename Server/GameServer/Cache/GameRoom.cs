@@ -39,6 +39,10 @@ namespace GameServer.Cache
         /// 房间内生成的道具id与数据的字典
         /// </summary>
         public Dictionary<int, PropsDto> IdPropsDict { get; set; }
+        /// <summary>
+        /// 房间内玩家Account与子弹类型字典
+        /// </summary>
+        public Dictionary<string, int> UserArmsDict { get; set; }
 
         public int id { get; set; }
 
@@ -51,6 +55,7 @@ namespace GameServer.Cache
             this.UserHgDict = new Dictionary<string, int>();
             this.UserKillDict = new Dictionary<string, int>();
             this.IdPropsDict = new Dictionary<int, PropsDto>();
+            this.UserArmsDict = new Dictionary<string, int>();
         }
 
         /// <summary>
@@ -82,6 +87,7 @@ namespace GameServer.Cache
             UserHpDict.Add(acc,100);
             UserHgDict.Add(acc, 200);
             UserKillDict.Add(acc, 0);
+            UserArmsDict.Add(acc, 0);
         }
         /// <summary>
         /// 退出游戏房间
@@ -93,6 +99,7 @@ namespace GameServer.Cache
             UserHpDict.Remove(acc);
             UserHgDict.Remove(acc);
             UserKillDict.Remove(acc);
+            UserArmsDict.Remove(acc);
         }
         /// <summary>
         /// 获取玩家hp
@@ -211,6 +218,25 @@ namespace GameServer.Cache
                 IdPropsDict.Remove(id);
             }
         }
+        /// <summary>
+        /// 设置子弹类型
+        /// </summary>
+        public void SetArms(string acc,int type)
+        {
+            UserArmsDict[acc] = type;
+        }
+
+        public int GetArmsByAcc(string acc)
+        {
+            if (UserArmsDict.ContainsKey(acc))
+            {
+                return UserArmsDict[acc];
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
         /// <summary>
         /// 广播消息
@@ -245,15 +271,15 @@ namespace GameServer.Cache
             int count = random.Next(5, 20); //随机个数
             List<int> usedPosX = new List<int>(count); //使用过的X坐标
             List<int> usedPosZ = new List<int>(count); //使用过的Z坐标
+            Random randomArm = new Random(Guid.NewGuid().GetHashCode());
             for (int i=0; i<count;i++)
             {
                 PropsDto propsDto = new PropsDto();
                 propsDto.id = propsId.Add_Get();
                 propsDto.type = random.Next(0, 3); //随机类型（有几种类型上限就是下限加几 
                 if (propsDto.type == 2) //随机武器类型
-                {
-                    Random randomArm = new Random();
-                    propsDto.subType = randomArm.Next(0, 2);
+                {                   
+                    propsDto.subType = randomArm.Next(0, 4);
                 }
                 int posx = RandomPos(usedPosX,46,-45);
                 propsDto.posX = posx;
@@ -262,6 +288,7 @@ namespace GameServer.Cache
                 propsDto.posZ = posz;
                 usedPosZ.Add(posz);
                 creatPropsDto.idPropsTypeDict.Add(propsDto.id, propsDto);
+                IdPropsDict.Add(propsDto.id, propsDto);
             }
             return creatPropsDto;
         }

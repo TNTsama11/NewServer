@@ -20,3 +20,10 @@ F:\unity\20191209Game\Server\CommunicationProtocol\obj\Debug\CommunicationProtoc
 F:\unity\20191209Game\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.csproj.CopyComplete
 F:\unity\20191209Game\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.dll
 F:\unity\20191209Game\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.pdb
+F:\unity\20191209Game\ServerGit\Demo\Assets\Plugins\CommunicationProtocol.dll
+F:\unity\20191209Game\ServerGit\Demo\Assets\Plugins\CommunicationProtocol.pdb
+F:\unity\20191209Game\ServerGit\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.csprojAssemblyReference.cache
+F:\unity\20191209Game\ServerGit\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.csproj.CoreCompileInputs.cache
+F:\unity\20191209Game\ServerGit\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.csproj.CopyComplete
+F:\unity\20191209Game\ServerGit\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.dll
+F:\unity\20191209Game\ServerGit\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.pdb

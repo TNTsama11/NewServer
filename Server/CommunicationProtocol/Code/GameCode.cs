@@ -49,5 +49,6 @@ namespace CommunicationProtocol.Code
         public const int GAME_DO_ATTACK_BROA = 39;
         public const int GAME_STOP_SKILL_CERQ = 40;
         public const int GAME_STOP_SKILL_BROA = 41;
+        public const int GAME_LOADCOMPLETE_CERQ = 42;
     }
 }
