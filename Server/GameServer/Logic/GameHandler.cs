@@ -451,8 +451,16 @@ namespace GameServer.Logic
         {
             SingleExcute.Instance.Exeute(()=> 
             {
+                if (!userCache.IsOnline(client))
+                {
+                    return;
+                }
                 string acc = userCache.GetAccByClient(client);
                 GameRoom room = gameCache.GetGameRoom(acc);
+                if (room == null)
+                {
+                    return;
+                }
                 int[] xz = room.GetRandomPosition();
                 room.RefreshTrans(acc, xz);
                 TransformInfo transformInfo = room.GetTransByAcc(acc);

@@ -83,6 +83,10 @@ namespace GameServer.Cache
         /// <returns></returns>
         public GameRoom GetGameRoom(string acc)
         {
+            if (!UserRoomDict.ContainsKey(acc))
+            {
+                return null;
+            }
             int id = UserRoomDict[acc];
             GameRoom room = RoomRoomModelDict[id];
             return room;
