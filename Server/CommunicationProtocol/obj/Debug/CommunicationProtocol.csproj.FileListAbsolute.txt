@@ -27,3 +27,5 @@ F:\unity\20191209Game\ServerGit\Server\CommunicationProtocol\obj\Debug\Communica
 F:\unity\20191209Game\ServerGit\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.csproj.CopyComplete
 F:\unity\20191209Game\ServerGit\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.dll
 F:\unity\20191209Game\ServerGit\Server\CommunicationProtocol\obj\Debug\CommunicationProtocol.pdb
+F:\unity\20191209Game\Work\Demo\Assets\Plugins\CommunicationProtocol.dll
+F:\unity\20191209Game\Work\Demo\Assets\Plugins\CommunicationProtocol.pdb

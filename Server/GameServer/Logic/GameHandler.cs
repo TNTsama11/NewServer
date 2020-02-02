@@ -142,7 +142,7 @@ namespace GameServer.Logic
                 //将新加入的玩家数据广播
                 gameRoom.Broadcast(OpCode.GAME, GameCode.GAME_ENTER_BROA, userdto, client);
                 //发送玩家加入的信息
-                string infoMsg = "玩家 " + "<color=#1e90ff>" + userdto.Name + "</color>" + " 加入了游戏\n";
+                string infoMsg = "玩家 " + "<color=#ffa502>" + userdto.Name + "</color>" + " 加入了游戏\n";
                 tempInfoDto.Change(infoMsg);
                 gameRoom.Broadcast(OpCode.GAME, GameCode.GAME_SYNC_INFO_BROA, tempInfoDto,client);
                 //将新加入的玩家的初始位置广播
@@ -239,7 +239,7 @@ namespace GameServer.Logic
                 GameRoom gameRoom = gameCache.Exit(acc);
                 Tool.PrintMessage("客户端：" + client.clientSocket.RemoteEndPoint.ToString() + "离开游戏,房间ID：" + gameRoom.id);
                 gameRoom.Broadcast(OpCode.GAME, GameCode.GAME_EXIT_BROA, acc);
-                string infoMsg = "玩家 " + "<color=#1e90ff>" + userCache.GetModelByAcc(acc).Name + "</color>" + " 离开了游戏\n";
+                string infoMsg = "玩家 " + "<color=##ffa502>" + userCache.GetModelByAcc(acc).Name + "</color>" + " 离开了游戏\n";
                 tempInfoDto.Change(infoMsg);
                 gameRoom.Broadcast(OpCode.GAME, GameCode.GAME_SYNC_INFO_BROA, tempInfoDto,client);
                 userCache.Offline(client);
@@ -484,7 +484,7 @@ namespace GameServer.Logic
                 room.Broadcast(OpCode.GAME, GameCode.GAME_SYNC_STATE_HG_SREP, tempHgDto, client);
                 room.Broadcast(OpCode.GAME, GameCode.GAME_SYNC_STATE_KILL_SREP, tempKillDto, client);
                 Tool.PrintMessage("玩家" + client.clientSocket.RemoteEndPoint.ToString() + "已复活");
-                string infoMsg = "<color=#1e90ff>" + userCache.GetModelByAcc(acc).Name + "</color>" + " 已复活\n";
+                string infoMsg = "<color=#ffa502>" + userCache.GetModelByAcc(acc).Name + "</color>" + " 已复活\n";
                 tempInfoDto.Change(infoMsg);
                 room.Broadcast(OpCode.GAME, GameCode.GAME_SYNC_INFO_BROA, tempInfoDto,client);
             });

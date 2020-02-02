@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GameServer.DataBaseTools;
 
 namespace GameServer.Cache
 {
@@ -14,12 +15,14 @@ namespace GameServer.Cache
         /// <summary>
         /// 保存GUID账号
         /// </summary>
-        private Queue<string> accQueue = new Queue<string>();
+       // private Queue<string> accQueue = new Queue<string>();
         /// <summary>
         /// 存储账号和客户端连接对象的对应字典
         /// </summary>
         private Dictionary<string, ClientPeer> accClientDict = new Dictionary<string, ClientPeer>(); //为了方便访问所以双向映射
         private Dictionary<ClientPeer, string> clientAccDict = new Dictionary<ClientPeer, string>();
+
+        private DataBaseTool dataBase = new DataBaseTool("localhost", "user_test", "root", "123456");
         /// <summary>
         /// 判断账号是否在线
         /// </summary>
@@ -59,7 +62,7 @@ namespace GameServer.Cache
             string account = clientAccDict[client];
             clientAccDict.Remove(client);
             accClientDict.Remove(account);
-            accQueue.Enqueue(account);//重用账号
+            //accQueue.Enqueue(account);//重用账号
             Tool.PrintMessage("执行OffLine()");
         }
         /// <summary>
@@ -72,13 +75,26 @@ namespace GameServer.Cache
             ClientPeer client = accClientDict[account];
             accClientDict.Remove(account);
             clientAccDict.Remove(client);
-            accQueue.Enqueue(account);
+            //accQueue.Enqueue(account);
         }
 
-        public void Login(ClientPeer client)
+        public void Login(ClientPeer client,string acc)
         {
-          string tempAccount=  DistributionAccount(client);
+            // Onlie(client, tempAccount);
+            //在数据库中查询
+            dataBase.UserIsExist(acc, client);
+        }
+
+        public void Reload(ClientPeer client,string acc)
+        {
+            dataBase.UserReload(acc, client);
+        }
+
+        public void Create(ClientPeer client)
+        {
+            string tempAccount = DistributionAccount(client);
             Onlie(client, tempAccount);
+            dataBase.Create(tempAccount, client);
         }
 
         /// <summary>
@@ -88,13 +104,7 @@ namespace GameServer.Cache
         /// <returns></returns>
         public string DistributionAccount(ClientPeer client)
         {
-            //TODO 
-            //将账号分配给玩家存到玩家数据缓存
-            if (accQueue.Count==0)
-            {
-                accQueue.Enqueue(Guid.NewGuid().ToString("N"));
-            }
-            return accQueue.Dequeue();
+            return Guid.NewGuid().ToString("N");
         }
         public string GetAcc(ClientPeer client)
         {

@@ -64,7 +64,11 @@ namespace GameServer.Logic
                     return;
                 }
                 Tool.PrintMessage("客户端" + client.clientSocket.RemoteEndPoint.ToString() + "的角色已上线");
-                
+
+                if (userCache.IsOnline(account)) //如果之前在线就顶下去
+                {
+                    userCache.Offline(userCache.GetClientByAcc(account));
+                }
                 userCache.Online(client, account);
 
                 client.SendMessage(OpCode.USER, UserCode.USER_ONLIEN_SREP, 0);//上线成功

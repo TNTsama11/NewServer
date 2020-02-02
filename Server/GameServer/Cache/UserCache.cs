@@ -33,10 +33,11 @@ namespace GameServer.Cache
         /// <param name="lv"></param>
         /// <param name="iconID"></param>
         /// <param name="modelID"></param>
-        public void ADD(ClientPeer client,string acc,string name,int lv,int iconID,int modelID)
+        public void ADD(ClientPeer client,string acc,string name= "NameLess", int lv=1,int iconID=0,int modelID=0)
         {
             UserModel userModel = new UserModel(acc, name, lv, iconID, modelID);
             accountModelDict.Add(userModel.Account, userModel);
+
         }
         /// <summary>
         /// 如果字典有这个Account就覆盖
@@ -110,6 +111,7 @@ namespace GameServer.Cache
             clientAccountDict.Remove(client);
             accountClientDict.Remove(acc);
         }
+
         /// <summary>
         /// 通过客户端连接对象获取玩家数据模型
         /// </summary>

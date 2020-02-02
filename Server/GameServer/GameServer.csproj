@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +52,9 @@
     <Compile Include="Cache\MatchRoom.cs" />
     <Compile Include="Cache\TransformInfo.cs" />
     <Compile Include="Cache\UserCache.cs" />
+    <Compile Include="DataBaseTools\DataBaseTool.cs" />
+    <Compile Include="DataBaseTools\QueryArgument.cs" />
+    <Compile Include="DataBaseTools\UpdataUserArg.cs" />
     <Compile Include="Logic\AccHandler.cs" />
     <Compile Include="Logic\GameHandler.cs" />
     <Compile Include="Logic\IHandler.cs" />
