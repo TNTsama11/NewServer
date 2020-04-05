@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CommunicationProtocol.Dto;
+using GameServer.DataBaseTools;
 using GameServer.Model;
 using ServerOne;
 
@@ -12,6 +14,9 @@ namespace GameServer.Cache
     /// </summary>
     public class UserCache
     {
+
+        private DataBaseTool dataBase = new DataBaseTool("localhost", "user_test", "root", "123456");
+
         /// <summary>
         /// 玩家Account与玩家数据模型映射的字典
         /// </summary>
@@ -24,6 +29,14 @@ namespace GameServer.Cache
         /// 客户端连接对象与Account的字典
         /// </summary>
         private Dictionary<ClientPeer, string> clientAccountDict = new Dictionary<ClientPeer, string>();
+
+        public void SaveUserData(ClientPeer client,string acc)
+        {
+            UserModel user = GetModelByAcc(acc);
+            UserDto dto = new UserDto(user.Account, user.Name, user.IconID, user.ModelID, user.Lv);
+            dataBase.UpdataUser(client, acc, dto);
+        }
+
 
         /// <summary>
         /// 将Account和对应的玩家信息保存到字典

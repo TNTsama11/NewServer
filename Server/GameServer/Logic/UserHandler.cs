@@ -8,6 +8,7 @@ using CommunicationProtocol.Code;
 using GameServer.Cache;
 using GameServer.Model;
 using CommunicationProtocol.Dto;
+using GameServer.DataBaseTools;
 
 namespace GameServer.Logic
 {
@@ -90,6 +91,12 @@ namespace GameServer.Logic
             userCache.Offline(client);
         }
 
+
+        private void SaveUserData(ClientPeer client,string acc)
+        {
+            userCache.SaveUserData(client,acc);
+        }
+
         private void GetUserInfo(ClientPeer client)
         {
             SingleExcute.Instance.Exeute(()=> {
@@ -122,6 +129,7 @@ namespace GameServer.Logic
             }
 
             client.SendMessage(OpCode.USER, UserCode.USER_UPLOADINFO_SREP, 0);
+            SaveUserData(client, userDto.Account);
         }
     }
 }

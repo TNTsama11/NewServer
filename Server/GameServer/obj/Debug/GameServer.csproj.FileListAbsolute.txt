@@ -51,3 +51,8 @@ F:\unity\20191209Game\ServerGit\Server\GameServer\obj\Debug\GameServer.csproj.Co
 F:\unity\20191209Game\ServerGit\Server\GameServer\obj\Debug\GameServer.csproj.CopyComplete
 F:\unity\20191209Game\ServerGit\Server\GameServer\obj\Debug\GameServer.exe
 F:\unity\20191209Game\ServerGit\Server\GameServer\obj\Debug\GameServer.pdb
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\MySql.Data.dll
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\Google.Protobuf.dll
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\BouncyCastle.Crypto.dll
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\Renci.SshNet.dll
+F:\unity\20191209Game\ServerGit\Server\GameServer\bin\Debug\MySql.Data.xml

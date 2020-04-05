@@ -18,6 +18,7 @@ namespace GameServer.DataBaseTools
             connstr = "data source=" + dataSource + ";" + "database=" + database + ";" + "user id =" + userID + ";" + "password=" + password + ";"+ "charset=utf8";
         }
         /// <summary>
+        /// 登陆
         /// 在数据库中查询是否存在该记录并且发给客户端
         /// </summary>
         public void UserIsExist(string acc,ClientPeer client)
@@ -119,7 +120,9 @@ namespace GameServer.DataBaseTools
                 Tool.PrintMessage(ex.ToString());
             }
         }
-
+        /// <summary>
+        /// 引继
+        /// </summary>
         public void UserReload(string acc, ClientPeer client)
         {
             QueryArgument arg = new QueryArgument();
@@ -198,7 +201,7 @@ namespace GameServer.DataBaseTools
                     cmd.Parameters.Add(new MySqlParameter("@lv", userDto.Lv));
                     cmd.Parameters.Add(new MySqlParameter("@icon", userDto.IconID));
                     cmd.Parameters.Add(new MySqlParameter("@model", userDto.ModelID));
-                    cmd.Parameters.Add(new MySqlParameter("@acc", userArg.Account));
+                    cmd.Parameters.Add(new MySqlParameter("@acc", userDto.Account));
                     conn.Open();
                     int e = cmd.ExecuteNonQuery();
                     if (e == 0)
@@ -216,5 +219,7 @@ namespace GameServer.DataBaseTools
                 Tool.PrintMessage(ex.ToString());
             }
         }
+
+
     }
 }

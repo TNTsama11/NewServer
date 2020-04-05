@@ -52,10 +52,10 @@ namespace GameServer.Logic
         private void Login(ClientPeer client,string acc)
         {
             SingleExcute.Instance.Exeute(()=> {
-                if (accCache.IsOnline(acc)) //如果之前在线就顶下去
-                {
-                    accCache.OffLine(acc);
-                }
+               // if (accCache.IsOnline(acc)) //如果之前在线就顶下去
+              //  {
+                //    accCache.OffLine(acc);
+              //  }
                 accCache.Login(client, acc);
             });
         }
